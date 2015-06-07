@@ -1,0 +1,39 @@
+<html>
+<body>
+<script src="jquery-2.1.4.min.js"></script>
+<script src="vue.js"></script>
+
+<div id="demo">
+    <h1>{{title | uppercase}}</h1>
+    <ul>
+        <li
+            v-repeat="episodes"
+        >
+            {{book_title}} : {{book_author}}  
+            <img src="{{book_img}}" width="50px" height="50px">
+        </li>
+    </ul>
+</div>
+
+<script>
+  var demo = new Vue({
+    el: '#demo',
+    data: {
+      title: "aba",
+      episodes: []
+    },
+    created: function() {
+        var that = this;
+        $.ajax({
+          type: "GET",
+          url: "./sample.json",
+          dataType: "json",
+          success: function(json) {
+            that.episodes = json.episodes;
+          }
+        })
+    }
+})
+</script>
+</body>  
+</html>

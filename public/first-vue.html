@@ -1,0 +1,38 @@
+<html>
+<body>
+<script src="vue.js"></script>
+
+<div id="demo">
+    <h1>{{title | uppercase}}</h1>
+    <ul>
+        <li
+            v-repeat="episodes"
+        >
+            {{book_title}} : {{book_author}}  
+            <img src="{{book_img}}" width="50px" height="50px">
+        </li>
+    </ul>
+</div>
+
+<script>
+  var demo = new Vue({
+    el: '#demo',
+    data: {
+        title: 'episodes',
+        episodes: [
+            {
+                book_title: 'title a',
+                book_author: 'author a',
+                book_img: 'http://haishin.ebookjapan.jp/contents/thumb/l/SHK79760.jpg'
+            },
+            {
+                book_title: 'title b',
+                book_author: 'author b',
+                book_img: 'http://haishin.ebookjapan.jp/contents/thumb/m/SX179360.jpg'
+            }
+        ]
+    }
+})
+</script>
+</body>  
+</html>
